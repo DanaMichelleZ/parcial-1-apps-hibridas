@@ -64,9 +64,31 @@ const eliminarVocaloid = async (req, res) => {
     }
 };
 
+
+const actualizarVocaloid = async (req, res) => {
+    const { id } = req.params;
+    const datosActualizados = req.body;
+
+    try {
+        const vocaloidActualizado = await Vocaloid.findByIdAndUpdate(id, datosActualizados, {
+            new: true,
+            runValidators: true
+        });
+
+        if (!vocaloidActualizado) {
+            return res.status(404).json({ error: 'Vocaloid no encontrado' });
+        }
+
+        res.json(vocaloidActualizado);
+    } catch (error) {
+        res.status(500).json({ error: 'Error al actualizar el Vocaloid' });
+    }
+};
+
 module.exports = {
     crearVocaloid,
     obtenerVocaloids,
     obtenerVocaloidPorId,
-    eliminarVocaloid
+    eliminarVocaloid,
+    actualizarVocaloid
 };
