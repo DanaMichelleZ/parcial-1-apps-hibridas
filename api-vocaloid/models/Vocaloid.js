@@ -28,14 +28,13 @@ const VocaloidSchema = new mongoose.Schema({
     },
     imagenPerfil: {
         type: String,
-        required: true
+        required: true,
     },
     imagenCuerpoCompleto: {
         type: String,
-        required: true
+        required: true,
     }
 });
-
 
 const Vocaloid = mongoose.model('Vocaloid', VocaloidSchema);
 
