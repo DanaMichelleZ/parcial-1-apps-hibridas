@@ -18,7 +18,8 @@ const crearVocaloid = async (req, res) => {
         const vocaloidGuardado = await nuevoVocaloid.save();
         res.status(201).json(vocaloidGuardado);
     } catch (error) {
-        res.status(400).json({ error: 'Error al crear el Vocaloid' });
+        console.error('Error al crear el Vocaloid:', error);
+        res.status(400).json({ error: 'Error al crear el Vocaloid', detalles: error.message });
     }
 };
 
@@ -28,22 +29,26 @@ const obtenerVocaloids = async (req, res) => {
         const vocaloids = await Vocaloid.find();
         res.json(vocaloids);
     } catch (error) {
-        res.status(500).json({ error: 'Error al obtener los Vocaloids' });
+        console.error('Error al obtener los Vocaloids:', error);
+        res.status(500).json({ error: 'Error al obtener los Vocaloids', detalles: error.message });
     }
 };
 
 
 const obtenerVocaloidPorId = async (req, res) => {
     try {
+        console.log('ID recibido:', req.params.id);
+        
         const vocaloid = await Vocaloid.findById(req.params.id);
         if (!vocaloid) {
             return res.status(404).json({ error: 'Vocaloid no encontrado' });
         }
         res.json(vocaloid);
     } catch (error) {
-        res.status(500).json({ error: 'Error al obtener el Vocaloid' });
+        console.error('Error al obtener el Vocaloid:', error);
+        res.status(500).json({ error: 'Error al obtener el Vocaloid', detalles: error.message });
     }
-};
+}
 
 
 const eliminarVocaloid = async (req, res) => {
@@ -54,7 +59,8 @@ const eliminarVocaloid = async (req, res) => {
         }
         res.json({ mensaje: 'Vocaloid eliminado con éxito' });
     } catch (error) {
-        res.status(500).json({ error: 'Error al eliminar el Vocaloid' });
+        console.error('Error al eliminar el Vocaloid:', error);
+        res.status(500).json({ error: 'Error al eliminar el Vocaloid', detalles: error.message });
     }
 };
 

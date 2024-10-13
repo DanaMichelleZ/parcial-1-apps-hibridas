@@ -7,7 +7,7 @@ const VocaloidSchema = new mongoose.Schema({
     },
     genero: {
         type: String,
-        enum: ['Masculino', 'Femenino'],
+        enum: ['Masculino', 'Femenino', 'Desconocido'],
         required: true,
     },
     desarrollador: {
