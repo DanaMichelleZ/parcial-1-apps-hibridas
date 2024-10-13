@@ -53,6 +53,19 @@ app.get('/vocaloids', async (req, res) => {
 });
 
 
+app.delete('/vocaloids/:id', async (req, res) => {
+    try {
+        const vocaloidEliminado = await Vocaloid.findByIdAndDelete(req.params.id);
+        if (!vocaloidEliminado) {
+            return res.status(404).json({ error: 'Vocaloid no encontrado' });
+        }
+        res.json({ mensaje: 'Vocaloid eliminado con éxito' });
+    } catch (error) {
+        res.status(500).json({ error: 'Error al eliminar el Vocaloid' });
+    }
+});
+
+
 app.listen(port, () => {
     console.log(`Servidor escuchando en el puertowo ${port}`);
 });
