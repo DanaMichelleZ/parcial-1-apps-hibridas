@@ -25,6 +25,14 @@ const VocaloidSchema = new mongoose.Schema({
     versionMotor: {
         type: String,
         required: true,
+    },
+    imagenPerfil: {
+        type: String,
+        required: true
+    },
+    imagenCuerpoCompleto: {
+        type: String,
+        required: true
     }
 });
 
