@@ -48,3 +48,35 @@ footer {
     bottom: 0;
     width: 100%;
 }
+
+
+
+
+/* vista-api.html */
+#vocaloid-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 20px;
+}
+
+.vocaloid-item {
+    width: 30%;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    text-align: center;
+}
+
+.vocaloid-item h2 {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+.vocaloid-item img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px;
+}

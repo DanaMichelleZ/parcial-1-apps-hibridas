@@ -1,12 +1,14 @@
 document.addEventListener("DOMContentLoaded", function () {
     const vocaloidList = document.getElementById("vocaloid-list");
 
+    vocaloidList.innerHTML = "";
+
     fetch("/vocaloids")
         .then(response => response.json())
         .then(data => {
 
             data.forEach(vocaloid => {
-                const vocaloidElement = document.createElement("div");
+                const vocaloidElement = document.createElement("li");
                 vocaloidElement.classList.add("vocaloid-item");
 
                 vocaloidElement.innerHTML = `
