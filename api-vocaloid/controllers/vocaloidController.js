@@ -26,13 +26,30 @@ const crearVocaloid = async (req, res) => {
 
 const obtenerVocaloids = async (req, res) => {
     try {
-        const vocaloids = await Vocaloid.find();
+        const { nombre, sort, limit = 10, page = 1 } = req.query;
+        let filtro = {};
+        let orden = {};
+
+
+        if (nombre) {
+            filtro.nombre = new RegExp(nombre, 'i');
+        }
+
+        if (sort) {
+            orden[sort] = 1;
+        }
+
+        const skip = (parseInt(page) - 1) * parseInt(limit);
+
+        const vocaloids = await Vocaloid.find(filtro).sort(orden).limit(parseInt(limit)).skip(skip);
+
         res.json(vocaloids);
     } catch (error) {
         console.error('Error al obtener los Vocaloids:', error);
         res.status(500).json({ error: 'Error al obtener los Vocaloids', detalles: error.message });
     }
 };
+
 
 
 const obtenerVocaloidPorId = async (req, res) => {
