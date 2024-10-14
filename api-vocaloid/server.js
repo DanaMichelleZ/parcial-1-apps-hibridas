@@ -1,6 +1,9 @@
+require('dotenv').config();
+
 const express = require('express');
 const conectarDB = require('./config/db');
 const vocaloidRoutes = require('./routes/vocaloidRoutes');
+const authRoutes = require('./routes/authRoutes');
 const path = require('path');
 
 const app = express();
@@ -22,6 +25,9 @@ app.use('/vocaloids', vocaloidRoutes);
 app.get('/', (req, res) => {
     res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
+
+
+app.use('/auth', authRoutes);
 
 
 app.listen(port, () => {
