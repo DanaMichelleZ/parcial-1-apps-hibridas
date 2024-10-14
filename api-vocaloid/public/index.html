@@ -10,10 +10,37 @@
     <header>
         <h1>Bienvenido a la API de Vocaloid</h1>
         <ul>
-            <li><a href="/vocaloids">Vocaloids</a></li>
-            <li><a href="/vocaloids/:id">Buscar</a></li>
+            <li><a href="/vista-api.html">Ver todos los Vocaloids</a></li>
         </ul>
     </header>
+
+    <main>
+        <section>
+            <h2>Descripción de la API</h2>
+            <p>Esta API proporciona información sobre diferentes Vocaloids, incluyendo sus atributos y características. A través de esta API, puedes gestionar los datos de Vocaloids y realizar diversas operaciones como crear, obtener, actualizar y eliminar registros.</p>
+        </section>
+
+        <section>
+            <h2>Rutas Disponibles</h2>
+            <ul>
+                <li><strong>GET /vocaloids</strong> - Obtener una lista de todos los Vocaloids.</li>
+                <li><strong>GET /vocaloids/:id</strong> - Obtener información de un Vocaloid específico por su ID.</li>
+                <li><strong>POST /vocaloids</strong> - Crear un nuevo Vocaloid.</li>
+                <li><strong>PUT /vocaloids/:id</strong> - Actualizar la información de un Vocaloid existente.</li>
+                <li><strong>DELETE /vocaloids/:id</strong> - Eliminar un Vocaloid existente.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Autenticación</h2>
+            <p>Las rutas de la API requieren autenticación a través de JSON Web Tokens (JWT) para garantizar la seguridad de las operaciones.</p>
+        </section>
+        
+        <section>
+            <h2>Validaciones</h2>
+            <p>La API incluye validaciones para asegurar que los datos enviados cumplen con los requisitos establecidos para cada Vocaloid.</p>
+        </section>
+    </main>
 
     <footer>
         <p>Nombre: Dana Michelle Zambelli</p>
