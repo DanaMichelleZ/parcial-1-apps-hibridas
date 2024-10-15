@@ -4,7 +4,7 @@ const Usuario = require('../models/Usuario');
 
 const registrarUsuario = async (req, res) => {
     const { nombre, email, password } = req.body;
-
+    console.log(password);
     try {
         let usuario = await Usuario.findOne({ email });
         if (usuario) {

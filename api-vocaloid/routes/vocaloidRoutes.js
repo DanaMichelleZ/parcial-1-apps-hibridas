@@ -1,5 +1,4 @@
 const express = require('express');
-const router = express.Router();
 const {
     crearVocaloid,
     obtenerVocaloids,
@@ -7,12 +6,14 @@ const {
     eliminarVocaloid,
     actualizarVocaloid
 } = require('../controllers/vocaloidController');
+const verificarToken = require('../middlewares/authMiddleware');
+const router = express.Router();
 
-
-router.post('/', crearVocaloid);
 router.get('/', obtenerVocaloids);
 router.get('/:id', obtenerVocaloidPorId);
-router.delete('/:id', eliminarVocaloid);
-router.put('/:id', actualizarVocaloid);
+
+router.post('/', verificarToken, crearVocaloid);
+router.put('/:id', verificarToken, actualizarVocaloid);
+router.delete('/:id', verificarToken, eliminarVocaloid);
 
 module.exports = router;
