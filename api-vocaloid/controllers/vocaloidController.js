@@ -3,6 +3,22 @@ const Vocaloid = require('../models/Vocaloid');
 const crearVocaloid = async (req, res) => {
     const { nombre, genero, desarrollador, idioma, fechaLanzamiento, versionMotor, imagenPerfil, imagenCuerpoCompleto } = req.body;
 
+    if (!nombre || nombre.trim() === "") {
+        return res.status(400).json({ error: 'El nombre es requerido.' });
+    }
+    if (!genero || (genero !== 'Masculino' && genero !== 'Femenino')) {
+        return res.status(400).json({ error: 'El género debe ser Masculino o Femenino.' });
+    }
+    if (!desarrollador || desarrollador.trim() === "") {
+        return res.status(400).json({ error: 'El desarrollador es requerido.' });
+    }
+    if (!Array.isArray(idioma) || idioma.length === 0) {
+        return res.status(400).json({ error: 'El idioma es requerido y debe ser un array.' });
+    }
+    if (!fechaLanzamiento || isNaN(Date.parse(fechaLanzamiento))) {
+        return res.status(400).json({ error: 'La fecha de lanzamiento debe ser válida.' });
+    }
+
     try {
         const nuevoVocaloid = new Vocaloid({
             nombre,
@@ -15,38 +31,36 @@ const crearVocaloid = async (req, res) => {
             imagenCuerpoCompleto
         });
 
-        const vocaloidGuardado = await nuevoVocaloid.save();
-        res.status(201).json(vocaloidGuardado);
+        await nuevoVocaloid.save();
+        res.status(201).json(nuevoVocaloid);
     } catch (error) {
-        console.error('Error al crear el Vocaloid:', error);
-        res.status(400).json({ error: 'Error al crear el Vocaloid', detalles: error.message });
+        res.status(500).json({ error: 'Error al crear el vocaloid.' });
     }
 };
 
 
 const obtenerVocaloids = async (req, res) => {
+    const { nombre, sort, page = 1, limit = 5 } = req.query;
+    let filtro = {};
+    let orden = {};
+
+    if (nombre) {
+        filtro.nombre = new RegExp(nombre, 'i');
+    }
+
+    if (sort) {
+        orden[sort] = 1;
+    }
+
     try {
-        const { nombre, sort, limit = 10, page = 1 } = req.query;
-        let filtro = {};
-        let orden = {};
-
-
-        if (nombre) {
-            filtro.nombre = new RegExp(nombre, 'i');
-        }
-
-        if (sort) {
-            orden[sort] = 1;
-        }
-
-        const skip = (parseInt(page) - 1) * parseInt(limit);
-
-        const vocaloids = await Vocaloid.find(filtro).sort(orden).limit(parseInt(limit)).skip(skip);
+        const vocaloids = await Vocaloid.find(filtro)
+            .sort(orden)
+            .skip((page - 1) * limit)
+            .limit(Number(limit));
 
         res.json(vocaloids);
     } catch (error) {
-        console.error('Error al obtener los Vocaloids:', error);
-        res.status(500).json({ error: 'Error al obtener los Vocaloids', detalles: error.message });
+        res.status(500).json({ error: 'Error al obtener los vocaloids.' });
     }
 };
 
