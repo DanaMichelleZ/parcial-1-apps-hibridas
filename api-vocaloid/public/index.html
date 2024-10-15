@@ -15,23 +15,14 @@
     </header>
 
     <main>
+        <h2>Sobre la API</h2>
+
         <section>
-            <h2>Descripción de la API</h2>
             <p>Esta API proporciona información sobre diferentes Vocaloids, incluyendo sus atributos y características.</p>
         </section>
 
-        <section id="introduccion-vocaloid">
-            <h2>¿Qué es Vocaloid?</h2>
-            <p><strong>Vocaloid</strong> es un software de síntesis de voz creado por <strong>Yamaha Corporation</strong> que permite generar voces humanas a partir de texto. Desarrollado inicialmente en 2003, ha permitido a músicos y productores componer canciones sin necesidad de cantantes reales. Vocaloid utiliza bancos de voz pregrabados, llamados "voicebanks", para transformar texto en una interpretación vocal realista.</p>
-
-            <h3>¿Cómo funciona Vocaloid?</h3>
-            <p>El software genera voces mediante un proceso de síntesis de voz por concatenación, donde fragmentos de sonidos vocales son ensamblados para generar la pronunciación de palabras completas. Cada <strong>voicebank</strong> está asociado a un personaje digital, como <em>Hatsune Miku</em> o <em>Megurine Luka</em>, lo que le da identidad al sonido.</p>
-
-            <p>Los usuarios pueden controlar la tonalidad, el timbre, la velocidad y la entonación de la voz, lo que permite un alto nivel de personalización para crear composiciones únicas.</p>
-        </section>
-
+        <h3>Rutas Disponibles</h3>
         <section>
-            <h2>Rutas Disponibles</h2>
             <ul>
                 <li><strong>GET <a href="/vocaloids">/vocaloids</a></strong> - Obtener una lista de todos los Vocaloids.</li>
                 <li><strong>GET /vocaloids/:id</strong> - Obtener información de un Vocaloid específico por su ID.</li>
@@ -41,14 +32,26 @@
             </ul>
         </section>
 
+        <h3>Autenticación</h3>
         <section>
-            <h2>Autenticación</h2>
             <p>Las rutas de la API requieren autenticación a través de JSON Web Tokens (JWT) para garantizar la seguridad de las operaciones. Se debe incluir un token válido en los encabezados de las solicitudes POST, PUT y DELETE.</p>
         </section>
         
+        <h3>Validaciones</h3>
         <section>
-            <h2>Validaciones</h2>
             <p>La API incluye validaciones para asegurar que los datos enviados cumplen con los requisitos establecidos para cada Vocaloid, tales como formato de fecha válido y la existencia de ciertos campos obligatorios como el nombre, género y desarrollador.</p>
+        </section>
+
+        <h2>¿Qué es Vocaloid?</h2>
+        <section id="introduccion-vocaloid">
+            <p><strong>Vocaloid</strong> es un software de síntesis de voz creado por <strong>Yamaha Corporation</strong> que permite generar voces humanas a partir de texto. Desarrollado inicialmente en 2003, ha permitido a músicos y productores componer canciones sin necesidad de cantantes reales. Vocaloid utiliza bancos de voz pregrabados, llamados "voicebanks", para transformar texto en una interpretación vocal realista.</p>
+            </section>
+
+            <h3>¿Cómo funciona Vocaloid?</h3>
+            <section>
+            <p>El software genera voces mediante un proceso de síntesis de voz por concatenación, donde fragmentos de sonidos vocales son ensamblados para generar la pronunciación de palabras completas. Cada <strong>voicebank</strong> está asociado a un personaje digital, como <em>Hatsune Miku</em> o <em>Megurine Luka</em>, lo que le da identidad al sonido.</p>
+
+            <p>Los usuarios pueden controlar la tonalidad, el timbre, la velocidad y la entonación de la voz, lo que permite un alto nivel de personalización para crear composiciones únicas.</p>
         </section>
     </main>
 
