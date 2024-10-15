@@ -9,7 +9,22 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    text-align: center;
 }
+
+header {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+    font-size: 2em;
+}
+
 
 h2 {
     color: white;
@@ -40,8 +55,13 @@ ul li {
 }
 
 ul li a {
-    color: white;
+    font-weight: 800;
+    color: #ff018d;
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+ul li a:hover {
+    color: #11c8d6;
 }
 
 footer {
@@ -55,12 +75,11 @@ footer {
 
 section {
     background-color: #ffffff;
-    padding: 20px;
-    margin: 20px 0;
+    padding: 30px;
+    margin: 20px auto;
     border-radius: 10px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    margin-left: 500px;
-    margin-right: 500px;
+    max-width: 990px;
 }
 
 section p {
@@ -76,7 +95,6 @@ section ul {
 section ul li {
     margin-bottom: 10px;
     font-size: 1.1em;
-    color: #11c8d6;
 }
 
 /* vista-api.html */
