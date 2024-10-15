@@ -40,7 +40,7 @@ const crearVocaloid = async (req, res) => {
 
 
 const obtenerVocaloids = async (req, res) => {
-    const { nombre, sort, page = 1, limit = 5 } = req.query;
+    const { nombre, sort, page = 1, limit = 100 } = req.query;
     let filtro = {};
     let orden = {};
 
