@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;800&display=swap');
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Montserrat', sans-serif;
     background-color: #f4f4f9;
     color: #333;
     margin: 0;
@@ -10,15 +12,16 @@ body {
 }
 
 header {
-    background-color: #4CAF50;
+    background-color: #11c8d6;
     padding: 20px;
     text-align: center;
-    color: black;
+    color: white;
 }
 
 header h1 {
     margin: 0;
     font-size: 2em;
+    color: #ff018d;
 }
 
 header p {
@@ -35,7 +38,7 @@ ul li {
 }
 
 ul li a {
-    color: #333;
+    color: white;
     text-decoration: none;
 }
 
@@ -48,8 +51,35 @@ footer {
     width: 100%;
 }
 
+section {
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
 
+section h2 {
+    font-size: 1.8em;
+    color: #ff018d;
+    margin-bottom: 15px;
+}
 
+section p {
+    font-size: 1em;
+    line-height: 1.6;
+    color: #333;
+}
+
+section ul {
+    margin-top: 10px;
+}
+
+section ul li {
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #11c8d6;
+}
 
 /* vista-api.html */
 #vocaloid-list {
@@ -67,15 +97,23 @@ footer {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     border-radius: 5px;
     text-align: center;
+    border: 2px solid transparent;
+    background-clip: padding-box;
+    border-image: linear-gradient(to right, #ff018d, #11c8d6) 1;
 }
 
 .vocaloid-item h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
+    color: #ff018d;
 }
 
 .vocaloid-item img {
     max-width: 100%;
     height: auto;
     border-radius: 5px;
+}
+
+.vocaloid-item:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
