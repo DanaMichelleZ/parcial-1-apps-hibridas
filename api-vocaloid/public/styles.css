@@ -12,13 +12,6 @@ body {
     text-align: center;
 }
 
-header {
-    background-color: #000000;
-    padding: 20px;
-    text-align: center;
-    color: white;
-}
-
  h1 {
     color: white;
     margin: 0;
@@ -41,6 +34,22 @@ h3 {
     font-size: 1.5rem;
 }
 
+header {
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    color: white;
+}
+header a {
+    color: #ff018d;
+    text-decoration: none;
+    font-weight: 900;
+    transition: color 0.3s ease;
+    
+}
+header a:hover {
+    color: #11c8d6;
+}
 header p {
     margin: 0.5em 0;
 }
@@ -65,7 +74,7 @@ ul li a:hover {
 }
 
 footer {
-    background-color: #333;
+    background-color: black;
     color: white;
     text-align: center;
     padding: 10px;
@@ -125,7 +134,7 @@ section ul li {
 .vocaloid-item h2 {
     font-size: 1.5em;
     margin-bottom: 10px;
-    color: #ff018d;
+    color: white;
 }
 
 .vocaloid-item img {
